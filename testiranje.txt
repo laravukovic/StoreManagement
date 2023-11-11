@@ -1,0 +1,18 @@
+Authentication:
+
+python main.py --type authentication --authentication-url http://127.0.0.1:5000 --jwt-secret JWT_SECRET_KEY --roles-field roles --owner-role vlasnik --customer-role kupac --courier-role kurir
+
+level0:
+
+python main.py --type level0 --with-authentication --authentication-url http://127.0.0.1:5000 --owner-url http://127.0.0.1:5001 --customer-url http://127.0.0.1:5002
+
+level1:
+
+python main.py --type level1 --with-authentication --authentication-url http://127.0.0.1:5000 --owner-url http://127.0.0.1:5001 --customer-url http://127.0.0.1:5002 --with-blockchain --provider-url http://127.0.0.1:8545 --customer-keys-path C:\Users\user\Desktop\projekat\application\wallets\kupac.json --customer-passphrase iep_project --owner-private-key 0xeccf4448adb69ab7f19c140e1559a8fdc634f2790d83c264e8603ffea994afab
+
+level2:
+
+python main.py --type level2 --with-authentication --authentication-url http://127.0.0.1:5000 --owner-url http://127.0.0.1:5001 --customer-url http://127.0.0.1:5002 --courier-url http://127.0.0.1:5003 --with-blockchain --provider-url http://127.0.0.1:8545 --customer-keys-path C:\Users\user\Desktop\projekat\application\wallets\kupac.json --customer-passphrase iep_project --owner-private-key 0xeccf4448adb69ab7f19c140e1559a8fdc634f2790d83c264e8603ffea994afab --courier-private-key 0x8922e41cd0bbb9444c7705e6aa6b235144fbf002e855c186fdf351c3b2ebc358
+
+all:
+python main.py --type all --authentication-url http://127.0.0.1:5000 --jwt-secret JWT_SECRET_KEY --roles-field roles --owner-role vlasnik --customer-role kupac --courier-role kurir --with-authentication --owner-url http://127.0.0.1:5001 --customer-url http://127.0.0.1:5002 --courier-url http://127.0.0.1:5003 --with-blockchain --provider-url http://127.0.0.1:8545 --customer-keys-path "C:\Users\Lara Vukovic\Desktop\projekat\application\wallets\kupac.json" --customer-passphrase iep_project --owner-private-key 0xeccf4448adb69ab7f19c140e1559a8fdc634f2790d83c264e8603ffea994afab --courier-private-key 0x8922e41cd0bbb9444c7705e6aa6b235144fbf002e855c186fdf351c3b2ebc358

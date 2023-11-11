@@ -1,0 +1,19 @@
+privatni_kljuc:
+
+VLASNIK:
+iep_project
+PRIVATE_KEY: eccf4448adb69ab7f19c140e1559a8fdc634f2790d83c264e8603ffea994afab
+ADDRESS: 0x4b43B80F92ebfd069647B4695Bef5cff4c595ce1
+
+KUPAC:
+iep_project
+PRIVATE_KEY: c4fa764b8653d258b7de5db78038bc14357b4370f8e36e2c386d8c7a709237d0
+ADDRESS: 0x5AA639Cc20217ddFfBF289c3DF8338c2ebf2e281
+
+KURIR:
+iep_project
+PRIVATE_KEY: 8922e41cd0bbb9444c7705e6aa6b235144fbf002e855c186fdf351c3b2ebc358
+ADDRESS: 0x044c21284d358f92Ad79A646FDb07535bC0A03fc
+
+
+za power shell da ne bude restricted: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned

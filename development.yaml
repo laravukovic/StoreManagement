@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+  authenticationDB:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 10s
+      retries: 10
+  authenticationDBMigration:
+    image: authenticationdbmigration
+    environment:
+      - AUTHENTICATION_DATABASE_URL=authenticationDB
+  authentication:
+    image: authentication
+    environment:
+      - AUTHENTICATION_DATABASE_URL=authenticationDB
+    ports:
+      - 5000:5000
+  warehouseDB:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 10s
+      retries: 10
+  warehouseDBMigration:
+    image: warehousedbmigration
+    environment:
+      - WAREHOUSE_DATABASE_URL=warehouseDB
+  owner:
+    image: owner
+    environment:
+      - TZ=Europe/Belgrade
+      - WAREHOUSE_DATABASE_URL=warehouseDB
+    ports:
+      - 5001:5001
+  customer:
+    image: customer
+    environment:
+      - TZ=Europe/Belgrade
+      - WAREHOUSE_DATABASE_URL=warehouseDB
+    ports:
+      - 5002:5002
+  courier:
+    image: courier
+    environment:
+      - TZ=Europe/Belgrade
+      - WAREHOUSE_DATABASE_URL=warehouseDB
+    ports:
+      - 5003:5003
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  ganache-cli:
+    image: trufflesuite/ganache-cli
+    container_name: ganache-cli
+    ports:
+      - 8545:8545
+    command: >
+      --account="0xeccf4448adb69ab7f19c140e1559a8fdc634f2790d83c264e8603ffea994afab,2000000000000000000000"
+      --account="0xc4fa764b8653d258b7de5db78038bc14357b4370f8e36e2c386d8c7a709237d0,2000000000000000000000"
+      --account="0x8922e41cd0bbb9444c7705e6aa6b235144fbf002e855c186fdf351c3b2ebc358,2000000000000000000000"

@@ -1,0 +1,8 @@
+what are microservices prvi zeleni slajd
+sta je postman slajd 8 za sta se on koristi
+what are requests
+prtscr potman slide 8 sta pokazuje mslajd 9 i 10
+objasniti sta je docker
+objasniti ganache
+what is ethereum contract
+how does trans work
